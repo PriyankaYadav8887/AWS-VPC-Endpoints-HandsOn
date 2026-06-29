@@ -17,6 +17,7 @@ This repository includes:
 
 The primary objective of this lab is to understand how AWS enables private connectivity to its services using VPC Endpoints.
 After completing this project, I was able to understand:
+
 -How private EC2 instances communicate with Amazon S3 
 -Why NAT Gateway is not always required 
 -How Gateway Endpoints work internally
@@ -38,6 +39,7 @@ However, these instances still need to access AWS services such as Amazon S3 for
 Without a VPC Endpoint, private instances generally require a NAT Gateway or another outbound path to reach these services.
 
 This increases:
+
 -Infrastructure cost
 -Internet dependency
 -Network complexity
@@ -65,6 +67,7 @@ Instead of routing traffic through a NAT Gateway or Internet Gateway, AWS provid
                Private EC2 Instance
 
 Flow
+
 1-The EC2 instance requests access to Amazon S3.
 2-The Route Table checks the destination.
 3-The S3 route is matched with the Gateway Endpoint.
@@ -150,6 +153,7 @@ AWS Private Backbone
 Amazon S3
 
 🔍 Key Learnings
+
 -Understood the purpose and benefits of VPC Endpoints.
 -Learned why Gateway Endpoints are used for Amazon S3 and Amazon DynamoDB.
 -Observed how AWS automatically updates Route Tables when a Gateway Endpoint is created.
@@ -158,16 +162,19 @@ Amazon S3
 -Gained practical experience validating connectivity using the AWS CLI.
 
 ⚠️ Challenges Faced
+
 -Associating the correct Route Table with the Gateway Endpoint.
 -Configuring IAM permissions for AWS CLI access.
 -Verifying endpoint routing after creation.
 -Understanding the difference between Gateway and Interface Endpoints.
 
 🏁 Results
+
 Successfully implemented a Gateway Endpoint for Amazon S3.
 The EC2 instance in the private subnet accessed S3 securely over the AWS private network, demonstrating that a NAT Gateway or Internet Gateway is not required for this communication.
 
 📚 Interview Takeaways
+
 -A VPC Endpoint provides private connectivity to supported AWS services.
 -Gateway Endpoints are available only for Amazon S3 and Amazon DynamoDB.
 -Interface Endpoints use AWS PrivateLink and create ENIs.
