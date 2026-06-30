@@ -1,4 +1,4 @@
-AWS VPC Endpoints Hands-on Lab
+**AWS VPC Endpoints Hands-on Lab**
 
 The objective of this hands-on is to understand how VPC Endpoints provide private, secure, and optimized communication between resources inside a VPC and supported AWS services while following AWS networking best practices.
 
@@ -13,7 +13,7 @@ This repository includes:
 - Key learnings 
 - Common interview questions 
 
-🎯 Objective
+🎯 **Objective**
 
 The primary objective of this lab is to understand how AWS enables private connectivity to its services using VPC Endpoints.
 After completing this project, I was able to understand:
@@ -25,7 +25,7 @@ After completing this project, I was able to understand:
 - Private communication over the AWS backbone network
 - Best practices for secure AWS networking
 
-❓ Problem Statement
+❓ **Problem Statement**
 
 Organizations often deploy application servers in private subnets to prevent direct internet access.
 However, these instances still need to access AWS services such as Amazon S3 for:
@@ -47,13 +47,13 @@ This increases:
 
 The solution is to use a VPC Endpoint, which allows traffic to remain entirely within the AWS private network.
 
-💡 What is a VPC Endpoint?
+💡 **VPC Endpoint**
 
 A VPC Endpoint is a private connection between your VPC and supported AWS services.
 It enables resources inside a VPC to communicate with AWS services without traversing the public internet.
 Instead of routing traffic through a NAT Gateway or Internet Gateway, AWS provides a private path using its own backbone network.
 
-🏗️ Architecture
+🏗️ **Architecture**
 
                      Amazon S3
                          ▲
@@ -88,22 +88,24 @@ Instead of routing traffic through a NAT Gateway or Internet Gateway, AWS provid
 | IAM                      | Secure AWS CLI access    |
 | AWS CLI                  | Verification and testing |
 
-🧪 Hands-on Implementation
+🧪 **Hands-on Implementation**
 
 **Step 1 – Create a Custom VPC**
 Created a custom VPC to host the networking components required for this lab.
 
 **Step 2 – Create Public and Private Subnets**
 Configured:
--One Public Subnet
--One Private Subnet
+- Public Subnet
+- Private Subnet
 The EC2 instance used for testing was launched in the Private Subnet.
 
-**Step 3 – Configure Route Tables**
+**Step 3 – Create Internet Gateway**
+
+**Step 4 – Configure Route Tables**
 Created separate Route Tables for the public and private subnets.
 The private Route Table initially had no direct route to Amazon S3.
 
-**Step 4 – Launch an EC2 Instance**
+**Step 5 – Launch an EC2 Instance**
 Launched an Ubuntu EC2 instance inside the private subnet and connected using the appropriate method (for example, via a bastion host or AWS Systems Manager, depending on your setup).
 Installed the AWS CLI for testing connectivity.
 
@@ -119,6 +121,21 @@ Created an S3 bucket to test upload and download operations from the private EC2
 **Step 6 – Configure AWS CLI**
 Configured AWS CLI with IAM credentials that had permission to access the S3 bucket.
 aws configure.
+
+Installed the AWS CLI for testing connectivity.
+
+sudo apt update
+sudo apt install awscli -y
+aws --version
+aws configure
+
+Provide the following details:
+
+1-AWS Access Key ID
+2-AWS Secret Access Key
+3-Default Region (e.g., us-east-1)
+4-Default Output Format (e.g., json)
+
 
 **Step 7 – Verify Connectivity Before the Endpoint**
 Attempted to access the S3 bucket before creating the VPC Endpoint and observed the expected behavior based on the network configuration.
