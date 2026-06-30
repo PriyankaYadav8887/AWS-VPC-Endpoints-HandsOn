@@ -155,19 +155,20 @@ Verified successful access to the S3 bucket from the EC2 instance.
 
 🔄 **Traffic Flow**
 
-EC2 Instance
+
+ EC2 Instance
       │
       ▼
-Private Route Table
+ Private Route Table
       │
       ▼
-Gateway Endpoint
+ Gateway Endpoint
       │
       ▼
-AWS Private Backbone
+ AWS Private Backbone
       │
       ▼
-Amazon S3
+ Amazon S3
 
 🔍 **Key Learnings**
 
