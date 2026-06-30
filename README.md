@@ -155,21 +155,29 @@ Verified successful access to the S3 bucket from the EC2 instance.
 
 🔄 **Traffic Flow**
 
-```text
-EC2 Instance
-      │
-      ▼
-Private Route Table
-      │
-      ▼
-Gateway Endpoint
-      │
-      ▼
-AWS Private Backbone
-      │
-      ▼
-Amazon S3
-```
++----------------------+
+|     EC2 Instance     |
++----------------------+
+           │
+           ▼
++----------------------+
+| Private Route Table  |
++----------------------+
+           │
+           ▼
++----------------------+
+|  Gateway Endpoint    |
++----------------------+
+           │
+           ▼
++----------------------+
+| AWS Private Backbone |
++----------------------+
+           │
+           ▼
++----------------------+
+|      Amazon S3       |
++----------------------+
 
 🔍 **Key Learnings**
 
